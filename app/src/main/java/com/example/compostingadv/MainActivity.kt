@@ -36,6 +36,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -81,6 +83,7 @@ class MainActivity : ComponentActivity() {
                         ) {
                             BoxAlignment()
                         }
+                        com.example.compostingadv.Arrangement()
                     }
                 }
             }
@@ -202,6 +205,7 @@ fun RowAlignment(){
     }
 }
 
+
 /**
  * Box Alignment
  */
@@ -274,6 +278,37 @@ fun ButtonWithText(Text: String, modifier: Modifier)
 }
 
 @Composable
+fun RowButtonMaxWidth(whatArrangment : Arrangement.Horizontal)
+{
+    Row(
+        horizontalArrangement = whatArrangment,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        for( x in 1..3){
+            Button(onClick = {}, shape = RectangleShape, modifier = Modifier
+                .size(75.dp)
+                .padding(10.dp)) {
+                
+            }
+        }
+    }
+}
+
+@Composable
+fun Arrangement()
+{
+    Column(modifier = Modifier.fillMaxWidth())
+    {
+        RowButtonMaxWidth(Arrangement.Start)
+        RowButtonMaxWidth(Arrangement.End)
+        RowButtonMaxWidth(Arrangement.Center)
+        RowButtonMaxWidth(Arrangement.SpaceEvenly)
+        RowButtonMaxWidth(Arrangement.SpaceAround)
+        RowButtonMaxWidth(Arrangement.SpaceBetween)
+    }
+}
+
+@Composable
 fun Spacing() {
     Spacer(modifier = Modifier.width(20.dp))
 }
@@ -309,7 +344,7 @@ fun ButtonC(){
     Button(
         onClick = {},
         colors = ButtonDefaults.buttonColors(colorResource(R.color.purple_700)),
-        modifier = Modifier.size(60.dp)
+        modifier = Modifier.size(60.dp),
     ){
         Text("A")
     }
