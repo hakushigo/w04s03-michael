@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">compostingadv</string>
+
+    <string name="not_chanid_id">app_general_channel</string>
+    <string name="not_chanid_name">apps_notification</string>
+    <string name="not_chanid_desc">this is general notification channel.</string>
+</resources>
